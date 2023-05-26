@@ -1,41 +1,46 @@
 var language = "english";
 var count = 0;
-let latitude = 0;
-let longitude = 0;
-var World = {	
+var latitude = 0;
+var longitude = 0;
+var altitudeHeight = 0;
+var altitudeHeightOld = 0;
+var World = {
 	model : {},
-	hotspots:[
+	hotspots : [],
+	hotspots1:[
 	    {
           "id": "hs1",
           "name": "Kampong Glam",
           "nameChinese" : "甘榜格南",
           "heading": 0,
-          "latitude" : 1.3025910146328405,
-          "longitude" : 103.86114097281089,
-          "altitude": -50,
+          "latitude" : 1.3024865076321281,
+          "longitude" : 103.85895076336266,
+          "altitude": 0,
           "landmark" : "Aliwah Art Centre",
           "relativeDistance": 15,
           "titleSize" : 0.5,
           "titleOffsetZ" : 1,
-          "titleOffsetZ2" : 4.5,
+          "titleOffsetZ2" : 7.5,
           "offsetZ" : 4.15,
+          "offsetZ2" : 4,
           "markerSize" : 1.2,
-          "markerSize2" : 7
+          "markerSize2" : 6
         },
         {
           "id": "hs2",
           "name": "Little India",
           "nameChinese" : "小印度",
           "heading": 0,
-          "latitude" : 1.3099683509046904,
-          "longitude" : 103.85542515091112,
-          "altitude": 500,
+          "latitude" : 1.3079102532960165,
+          "longitude" : 103.85245531360017,
+          "altitude": 0,
           "landmark" : "Mustafa Centre",
           "relativeDistance": 10,
           "titleSize" : 0.5,
           "titleOffsetZ" : 1,
-          "titleOffsetZ2" : 3.5,
+          "titleOffsetZ2" : 9.5,
           "offsetZ" : 1,
+          "offsetZ2" : 6.5,
           "markerSize" : 1.15,
           "markerSize2" : 5
         },
@@ -44,15 +49,16 @@ var World = {
           "name": "Chinatown",
           "nameChinese" : "牛车水",
           "heading": 0,
-          "latitude" : 1.2844198355010052,
-          "longitude" : 103.8495969125526,
-          "altitude": 400,
+          "latitude" : 1.2827151018763032,
+          "longitude" : 103.84514003588235,
+          "altitude": 0,
           "landmark": "Yueh Hai Ching Temple",
           "relativeDistance": 20,
           "titleSize" : 0.5,
           "titleOffsetZ" : 1,
-          "titleOffsetZ2" : 3.25,
+          "titleOffsetZ2" : 9.75,
           "offsetZ" : 5.5,
+          "offsetZ2" : 6.75,
           "markerSize" : 1.25,
           "markerSize2" : 5
         },
@@ -61,17 +67,18 @@ var World = {
           "name": "Marina Bay",
           "nameChinese" : "滨海湾",
           "heading": 0,
-          "latitude" : 1.2849452185940224,
-          "longitude" : 103.85551044314342,
-          "altitude": -50,
+          "latitude" : 1.2862830506005571,
+          "longitude" : 103.85706464890902,
+          "altitude": 0,
           "landmark" : "Center of Marina May",
           "relativeDistance": 12,
           "titleSize" : 0.5,
           "titleOffsetZ" : 1,
-          "titleOffsetZ2" : 4.5,
+          "titleOffsetZ2" : 7,
           "offsetZ" : 0,
+          "offsetZ2" : 3.5,
           "markerSize" : 1,
-          "markerSize2" : 7
+          "markerSize2" : 6
         },
         {
           "id": "hs5",
@@ -85,12 +92,105 @@ var World = {
           "relativeDistance": 10,
           "titleSize" : 0.5,
           "titleOffsetZ" : 1,
-          "titleOffsetZ2" : 4.5,
+          "titleOffsetZ2" : 7.5,
           "offsetZ" : 0,
+          "offsetZ2" : 3.75,
           "markerSize" : 1.25,
-          "markerSize2" : 7
+          "markerSize2" : 6
         }
 	],
+	hotspots2:[
+    	    {
+              "id": "hs1",
+              "name": "Kampong Glam",
+              "nameChinese" : "甘榜格南",
+              "heading": 0,
+              "latitude" : 1.3025910146328405,
+              "longitude" : 103.86114097281089,
+              "altitude": 0,
+              "landmark" : "Aliwah Art Centre",
+              "relativeDistance": 15,
+              "titleSize" : 0.5,
+              "titleOffsetZ" : 1,
+              "titleOffsetZ2" : 7.5,
+              "offsetZ" : 4.15,
+              "offsetZ2" : 4,
+              "markerSize" : 1.2,
+              "markerSize2" : 6
+            },
+            {
+              "id": "hs2",
+              "name": "Little India",
+              "nameChinese" : "小印度",
+              "heading": 0,
+              "latitude" : 1.3099683509046904,
+              "longitude" : 103.85542515091112,
+              "altitude": 0,
+              "landmark" : "Mustafa Centre",
+              "relativeDistance": 10,
+              "titleSize" : 0.5,
+              "titleOffsetZ" : 1,
+              "titleOffsetZ2" : 9.5,
+              "offsetZ" : 1,
+              "offsetZ2" : 6.5,
+              "markerSize" : 1.15,
+              "markerSize2" : 5
+            },
+            {
+              "id": "hs3",
+              "name": "Chinatown",
+              "nameChinese" : "牛车水",
+              "heading": 0,
+              "latitude" : 1.2844198355010052,
+              "longitude" : 103.8495969125526,
+              "altitude": 0,
+              "landmark": "Yueh Hai Ching Temple",
+              "relativeDistance": 20,
+              "titleSize" : 0.5,
+              "titleOffsetZ" : 1,
+              "titleOffsetZ2" : 9.75,
+              "offsetZ" : 5.5,
+              "offsetZ2" : 6.75,
+              "markerSize" : 1.25,
+              "markerSize2" : 5
+            },
+            {
+              "id": "hs4",
+              "name": "Marina Bay",
+              "nameChinese" : "滨海湾",
+              "heading": 0,
+              "latitude" : 1.2849452185940224,
+              "longitude" : 103.85551044314342,
+              "altitude": 0,
+              "landmark" : "Center of Marina May",
+              "relativeDistance": 12,
+              "titleSize" : 0.5,
+              "titleOffsetZ" : 1,
+              "titleOffsetZ2" : 7,
+              "offsetZ" : 0,
+              "offsetZ2" : 3.5,
+              "markerSize" : 1,
+              "markerSize2" : 6
+            },
+            {
+              "id": "hs5",
+              "name": "Gardens by the Bay",
+              "nameChinese" : "滨海湾花园",
+              "heading": 0,
+              "latitude" : 1.2819575448900833,
+              "longitude": 103.86392318912225,
+              "altitude": 0,
+              "landmark" : "Supertree Grove",
+              "relativeDistance": 10,
+              "titleSize" : 0.5,
+              "titleOffsetZ" : 1,
+              "titleOffsetZ2" : 7.5,
+              "offsetZ" : 0,
+              "offsetZ2" : 3.75,
+              "markerSize" : 1.25,
+              "markerSize2" : 6
+            }
+    	],
     markerList : [],
     isLoaded: false,
     heading: 0,
@@ -102,15 +202,25 @@ var World = {
     isGeoMode : false,
     initGeoMode : function initFn() {
         toastText("GPS Location based POI ~", 5000, "success");
-
+        console.log("altitude height: ", altitudeHeight);
+        if(altitudeHeight > 130){
+            World.hotspots = World.hotspots2;
+            console.log("Set to hotspots2");
+        }else{
+            World.hotspots = World.hotspots1;
+            console.log("Set to hotspots1");
+        }
         World.markerImageDrawableList = [];
         World.markerTitleLabelList = [];
         World.markerList = [];
-        World.markerImageResource = new AR.ImageResource("assets/pin_normal.png", {});
+        World.markerImageResource = new AR.ImageResource("assets/pin_normal3.png", {});
         for (var i = 0; i < World.hotspots.length; i++) {
             var markerLocation = new AR.GeoLocation(World.hotspots[i].latitude, World.hotspots[i].longitude, World.hotspots[i].altitude);
             var markerImageDrawable = new AR.ImageDrawable(World.markerImageResource, World.hotspots[i].markerSize2, {
                 zOrder: i,
+                translate: {
+                    y: World.hotspots[i].offsetZ2
+                },
                 opacity: 1.0,
                 onClick: function () {
                     console.log("openContent: " + World.hotspots[this.zOrder].id);
@@ -253,15 +363,13 @@ var World = {
     	console.log("Set language: ", val);
         language = val;
         if(!World.isLoaded){
-            World.initGeoMode();
-            World.isGeoMode = true;
             World.isLoaded = true;
         }else{
             World.toggleLanguage();
         }
     },
     toggleGeoMode : function toggleGeoModeFn() {
-        AR.context.destroyAll ();
+        AR.context.destroyAll();
         console.log("Is GeoMode: ", World.isGeoMode);
         if(World.isGeoMode){
             World.initRelativeMode();
@@ -324,19 +432,53 @@ function toastText(msg, timeOut, type) {
 }
 document.getElementById('btn-snapshot').style.display = "none";
 document.getElementById('btn-continue').style.display = "none";
-document.getElementById('hashtag').style.display = "none";
+document.getElementById('hashtag').style.display = "block";
 
 setTimeout(function () {
   AR.platform.sendJSONObject({
     action : "get_language"
 });
 }, 1000);
-
+var isLocationSet = false;
 AR.context.onLocationChanged = function(lat, lon, altitude, accuracy){
     //update by native app, add custom functionality to build the AR scene based on the location
+    console.log("onLocationChanged: altitude: ", altitude);
+
     latitude = lat;
     longitude = lon;
-    document.getElementById("hashtag").innerHTML = count + ". [" + latitude + ", " + longitude + "] (" + altitude +"m/" + accuracy +") (" + World.pressure + "hPa)";
+    if(World.pressure > 0){
+        altitudeHeight = getAltitudeFromPressure(World.pressure);
+    }
+
+    document.getElementById("hashtag").innerHTML = count + ": (" + latitude + ", " + longitude + ")(" + World.pressure.toFixed(2) + "hPa)("
+            + altitudeHeight.toFixed(2) +"m) Ascending? "+ isAscending;
     count++;
+    if(!isLocationSet && World.pressure > 0){
+          World.initGeoMode();
+          World.isGeoMode = true;
+          isLocationSet = true;
+    }
 }
-//World.init();
+
+function getAltitudeFromPressure(pressure) {
+        //in hPa unit
+    return (9324.6 - (9.2534 * pressure));
+}
+var isAscending = "No";
+var isWaiting = false;
+
+setInterval(function () {
+    console.log("Is Ascending? ", altitudeHeightOld + "|" + altitudeHeight);
+    if(altitudeHeightOld != altitudeHeight){
+        var delta = altitudeHeight - altitudeHeightOld;
+            if(delta > 0){
+                isAscending = "Yes";
+            }else{
+                isAscending = "No";
+            }
+        console.log("Is Ascending: ", isAscending);
+    }
+    altitudeHeightOld = altitudeHeight;
+}, 10000);
+
+toastText("Determine your location ~", 5000, "warning");
